@@ -1,0 +1,847 @@
+PROJECT: EXAM FORMAT REDO
+PHASE: CORE PHASE 1 ONLY
+STATUS: BRAND-NEW PROJECT — DO NOT USE OLD EXAM FORMAT CODE
+
+========================================================
+A. PURPOSE
+========================================================
+
+Build the smallest possible proof-of-concept that can understand the
+structure of ONE real, messy English Grade 10 teacher exam and normalize
+its question numbering.
+
+This is NOT yet an exam formatter.
+
+CORE Phase 1 does ONLY:
+
+Teacher DOCX
+    ↓
+Extract document blocks
+    ↓
+Whole-document hierarchy discovery
+    ↓
+Canonical exam structure
+    ↓
+Deterministic numbering
+    ↓
+Simple diagnostic output
+    ↓
+Integrity validation
+
+STOP THERE.
+
+Do not build anything else.
+
+========================================================
+B. FIXED INPUT FILES
+========================================================
+
+There are exactly TWO input files for Phase 1.
+
+1. Teacher Exam
+
+Teacher Exam English 10 Actual.docx
+
+This is the REAL input that must be understood.
+
+It contains intentionally inconsistent teacher-created structure.
+
+DO NOT clean this file.
+DO NOT modify it.
+DO NOT create a simplified substitute.
+
+2. Reference Exam
+
+Reference Exam English 10 WORD.docx
+
+This is a REFERENCE ONLY.
+
+It demonstrates the intended structural conventions.
+
+It must NEVER be used as a source for academic content in the Teacher Exam.
+
+The Teacher Exam's wording, passages, questions, choices, marks, order,
+and images are authoritative.
+
+========================================================
+C. IMPORTANT DESIGN PRINCIPLE
+========================================================
+
+DO NOT build a collection of regex patches for individual paragraphs.
+
+DO NOT attempt to infer hierarchy one paragraph at a time without
+understanding the complete exam.
+
+The central requirement is:
+
+        READ THE WHOLE EXAM
+               ↓
+        UNDERSTAND ITS STRUCTURE
+               ↓
+        CREATE ONE CANONICAL HIERARCHY
+               ↓
+        NUMBER THAT HIERARCHY DETERMINISTICALLY
+
+Discovery and numbering are separate operations.
+
+Discovery determines WHAT each block means.
+
+Numbering determines HOW the discovered structure is labeled.
+
+========================================================
+D. WHAT DISCOVERY MUST UNDERSTAND
+========================================================
+
+The Teacher Exam contains several kinds of material.
+
+Discovery must distinguish at minimum:
+
+- metadata/header
+- syllabus/book/chapter information
+- section
+- major_question
+- branch
+- passage
+- subquestion
+- choice
+- OR / alternative
+- continuation text
+- image
+- other
+
+The system must understand PARENT/CHILD relationships.
+
+Example:
+
+major question
+    passage
+    subquestion
+        choice
+        choice
+        choice
+        choice
+    subquestion
+        choice
+        choice
+        choice
+        choice
+
+Another example:
+
+major question
+    branch A
+        passage
+        subquestions
+    branch B
+        passage
+        subquestions
+
+Another example:
+
+major question
+    first alternative
+    OR
+    second alternative
+
+========================================================
+E. THE TEACHER EXAM IS DELIBERATELY MESSY
+========================================================
+
+Do NOT assume existing numbering is reliable.
+
+Examples in the Teacher Exam include:
+
+1.
+2.
+3.
+
+a.
+b.
+c.
+d.
+
+i.
+ii.
+iii.
+iv.
+
+9.(a)
+
+(B).
+
+OR
+
+Some choices occur on one line.
+
+Some question text continues onto another paragraph.
+
+A number may mean a major question in one location and a subquestion
+somewhere else.
+
+Therefore:
+
+TEXT PREFIX ALONE MUST NOT DETERMINE HIERARCHY.
+
+Context and the complete exam structure matter.
+
+========================================================
+F. PRE-EXAM MATERIAL
+========================================================
+
+The Teacher Exam begins with material such as:
+
+English grade 10, Quarterly Exam
+
+Book 1: First Flight
+
+Chapter 1: A letter to God
+
+Chapter 2: Nelson Mandela
+
+Chapter 3: Two stories about Flying
+
+Poem: dust of snow
+
+Poem: Fire and Ice
+
+Book 2: Footprints without feet
+
+Ch. 1: Triumph of Surgery
+
+These are NOT exam questions.
+
+They must NEVER become:
+
+Q1
+Q2
+Q3
+etc.
+
+The actual examination follows the school/exam header and Section A.
+
+Discovery must understand this distinction.
+
+========================================================
+G. EXPECTED MAJOR QUESTION STRUCTURE
+========================================================
+
+For this fixed Teacher Exam, discovery should ultimately recognize
+major questions Q1 through Q16.
+
+IMPORTANT:
+
+Do NOT hard-code "16".
+
+The discovery process must determine the major questions from the
+document.
+
+For this fixture, however, Q1-Q16 is an acceptance-test expectation.
+
+Examples:
+
+Section A:
+Q1
+Q2
+Q3
+
+Section B:
+Q4
+Q5
+Q6
+
+Section C:
+Q7
+Q8
+
+Section D:
+Q9
+Q10
+Q11
+Q12
+Q13
+Q14
+Q15
+Q16
+
+========================================================
+H. Q9 IS AN IMPORTANT TEST
+========================================================
+
+Q9 contains nested structure.
+
+The Teacher Exam uses approximately:
+
+9.(a)
+    passage
+    1.
+        (a)
+        (b)
+        (c)
+        (d)
+    2.
+        ...
+    3.
+        ...
+
+(B).
+    passage
+    1.
+        a.
+        b.
+        c.
+    2.
+        ...
+    3.
+        ...
+
+The system must understand that both parts belong to Q9.
+
+Do NOT accidentally attach Q9's children to "Section D".
+
+Do NOT turn the internal 1/2/3 questions into Q10/Q11/Q12.
+
+Canonical numbering should be derived AFTER discovery.
+
+========================================================
+I. Q10 IS ANOTHER IMPORTANT TEST
+========================================================
+
+Teacher input contains:
+
+10. Choose the correct answer
+
+i. question
+a. choice
+b. choice
+c. choice
+d. choice
+
+ii. question
+a. choice
+b. choice
+c. choice
+d. choice
+
+etc.
+
+Canonical structure must be:
+
+Q10
+    i)
+        a)
+        b)
+        c)
+        d)
+    ii)
+        a)
+        b)
+        c)
+        d)
+    iii)
+        ...
+    iv)
+        ...
+
+A "d." answer must never accidentally become a new subquestion.
+
+========================================================
+J. Q11-Q13
+========================================================
+
+These questions contain Roman-numeral child questions.
+
+Example:
+
+Q11
+    i)
+    ii)
+    iii)
+    iv)
+    v)
+    vi)
+    vii)
+
+These are subquestions, NOT answer choices.
+
+Q12 and Q13 similarly contain Roman-numeral subquestions.
+
+========================================================
+K. Q14-Q16
+========================================================
+
+These contain OR alternatives.
+
+The OR structure belongs to the corresponding major question.
+
+Conceptually:
+
+Q14
+    alternative 1
+    OR
+    alternative 2
+
+Q15
+    alternative 1
+    OR
+    alternative 2
+
+Q16
+    alternative 1
+    OR
+    alternative 2
+
+Do not create additional major questions from the alternative text.
+
+========================================================
+L. REFERENCE EXAM
+========================================================
+
+Use the Reference Exam only to understand the desired structural
+conventions.
+
+For example, it demonstrates clean structures such as:
+
+Q1.
+    (i)
+    (ii)
+    ...
+
+Q9(a)
+    ...
+Q9(b)
+    ...
+
+Q10.
+    (i)
+        A)
+        B)
+        C)
+        D)
+
+It is a structural reference.
+
+DO NOT copy:
+
+- question wording
+- passages
+- answer choices
+- marks
+- syllabus content
+
+from the Reference Exam into the Teacher Exam.
+
+========================================================
+M. CANONICAL INTERNAL MODEL
+========================================================
+
+Create a simple explicit internal representation.
+
+Keep it easy to inspect.
+
+For example, each block may contain fields such as:
+
+source_id
+source_order
+original_text
+block_type
+parent_id
+confidence
+reason
+final_label
+
+Use the simplest suitable Python representation.
+
+A dataclass or Pydantic model is fine.
+
+Do NOT over-engineer.
+
+The canonical structure must exist BEFORE numbering.
+
+========================================================
+N. DISCOVERY
+========================================================
+
+Discovery should consider the entire document.
+
+If an LLM is used, give it the complete extracted exam structure/text
+within practical model limits and ask it to return STRICT structured
+data.
+
+The LLM may DISCOVER structure.
+
+The LLM must NOT rewrite academic content.
+
+The returned structure must reference stable source IDs.
+
+Example source IDs:
+
+p0001
+p0002
+p0003
+
+and image IDs where necessary.
+
+Never accept newly invented question text from the model.
+
+The model returns classifications and relationships, not replacement
+content.
+
+========================================================
+O. DETERMINISTIC NUMBERING
+========================================================
+
+After discovery is complete and validated, run a separate deterministic
+numbering step.
+
+Do NOT ask the LLM to write final labels.
+
+The numbering engine should walk the canonical hierarchy.
+
+Desired convention:
+
+Major questions:
+
+Q1)
+Q2)
+Q3)
+
+Subquestions:
+
+i)
+ii)
+iii)
+iv)
+
+Choices:
+
+a)
+b)
+c)
+d)
+
+Branches where appropriate:
+
+A)
+B)
+
+The precise display style can be adjusted later.
+
+For Phase 1, CONSISTENCY and correct hierarchy matter more than typography.
+
+========================================================
+P. DO NOT ALTER CONTENT
+========================================================
+
+The system may normalize STRUCTURAL LABELS only.
+
+It must not:
+
+- rewrite questions
+- fix grammar
+- fix spelling
+- improve English
+- change marks
+- replace passages
+- generate questions
+- remove questions
+- reorder questions
+- change answer choices
+- substitute reference-exam content
+
+Teacher academic content must remain unchanged.
+
+========================================================
+Q. IMAGES
+========================================================
+
+The Teacher Exam contains an embedded image associated with Q6.
+
+Phase 1 does NOT need to format or resize the image.
+
+But extraction/discovery must preserve its existence and approximate
+location/order so it is not silently lost.
+
+Represent it with a stable block/image ID.
+
+No image generation.
+
+No image replacement.
+
+========================================================
+R. DIAGNOSTIC OUTPUT
+========================================================
+
+Phase 1 output should be intentionally ugly and useful.
+
+Generate a human-readable report such as:
+
+SOURCE | TYPE | PARENT | FINAL LABEL | TEXT
+
+Example:
+
+p0021 | section        | -     | -    | Section A
+p0022 | major_question | -     | Q1)  | Read the following...
+p0023 | passage        | p0022 | -    | Emperor Ashoka...
+p0025 | subquestion    | p0022 | i)   | The Moghuls...
+p0026 | choice         | p0025 | a)   | Kashmir...
+
+Also save the canonical hierarchy as JSON.
+
+Suggested outputs:
+
+output/hierarchy.json
+output/hierarchy.txt
+output/integrity.txt
+
+NO formatted exam DOCX is required in Phase 1.
+
+========================================================
+S. VALIDATION
+========================================================
+
+Before declaring PASS, validate the canonical hierarchy.
+
+Check at minimum:
+
+1. Every numbered child has a valid parent.
+2. Every choice belongs to a valid question/subquestion.
+3. Every branch belongs to a major question.
+4. OR alternatives belong to a major question.
+5. Major questions are in document order.
+6. No pre-exam chapter information became a major question.
+7. No source block disappeared.
+8. No source block was duplicated.
+9. Academic text remains unchanged.
+10. Images remain represented.
+11. Numbering is deterministic.
+12. Running numbering twice produces the same result.
+
+========================================================
+T. CONTENT INTEGRITY
+========================================================
+
+Create a simple integrity comparison between extracted source content
+and canonical output.
+
+At minimum report:
+
+Question/order integrity
+Marks integrity
+Passage integrity
+Choice integrity
+Numerical-value integrity
+Substantive-text integrity
+Image-presence integrity
+
+The canonical representation may change labels but must not change
+substantive content.
+
+========================================================
+U. UNCERTAINTY
+========================================================
+
+Do NOT force a result just to PASS.
+
+If discovery genuinely cannot resolve a relationship, record:
+
+REVIEW_REQUIRED
+
+and identify:
+
+source_id
+text
+proposed type
+proposed parent
+confidence
+reason
+
+But do not create arbitrary low confidence simply because teacher
+numbering is inconsistent.
+
+The purpose of whole-document discovery is to understand those
+inconsistencies.
+
+========================================================
+V. TESTING
+========================================================
+
+The primary acceptance test is the EXACT fixed file:
+
+Teacher Exam English 10 Actual.docx
+
+Do NOT create a cleaned version for the acceptance test.
+
+Unit fixtures are allowed for individual components, but final acceptance
+must use the real Teacher Exam.
+
+Test specifically:
+
+- pre-exam chapter list is NOT numbered
+- Section A starts with Q1
+- Q1-Q16 major questions discovered
+- Q9 hierarchy correct
+- Q10 hierarchy correct
+- Q11-Q13 Roman numerals correct
+- Q14-Q16 alternatives correct
+- Q6 image represented
+- no academic text changed
+- deterministic numbering
+- no unresolved hierarchy requiring review
+
+========================================================
+W. TECHNOLOGY
+========================================================
+
+Use Python.
+
+Prefer:
+
+python-docx
+standard library
+OpenAI API only if needed for hierarchy discovery
+
+Keep dependencies minimal.
+
+No database.
+
+No FastAPI.
+
+No Flask.
+
+No browser.
+
+No GUI.
+
+No WhatsApp.
+
+No Render.
+
+No executable build.
+
+No authentication.
+
+No user management.
+
+No PDF.
+
+No formatting engine.
+
+========================================================
+X. SIMPLE COMMAND
+========================================================
+
+I want one simple development command eventually similar to:
+
+python run_core.py
+
+It should process the fixed Teacher Exam and Reference Exam and produce
+the diagnostic outputs.
+
+Keep paths configurable in one obvious location or command-line args.
+
+========================================================
+Y. PROJECT STRUCTURE
+========================================================
+
+Keep it small.
+
+A reasonable structure might be:
+
+exam_format_redo/
+    run_core.py
+    core/
+        extract.py
+        models.py
+        discover.py
+        number.py
+        validate.py
+        integrity.py
+    input/
+        Teacher Exam English 10 Actual.docx
+        Reference Exam English 10 WORD.docx
+    output/
+    tests/
+    requirements.txt
+    README.md
+
+This is guidance, not a requirement.
+
+Do not create unnecessary abstraction.
+
+========================================================
+Z. IMPLEMENTATION PROCESS
+========================================================
+
+FIRST:
+
+Inspect both fixed DOCX files.
+
+Then present a SHORT implementation plan.
+
+Maximum about one page.
+
+The plan must identify:
+
+1. extraction method
+2. canonical data model
+3. whole-document discovery method
+4. deterministic numbering method
+5. validator
+6. integrity check
+7. acceptance test
+
+DO NOT IMPLEMENT YET.
+
+WAIT FOR MY APPROVAL.
+
+After approval:
+
+Implement CORE Phase 1 only.
+
+Then run the exact fixed Teacher Exam.
+
+Show me:
+
+1. Q1-Q16 discovered major questions
+2. Q9 hierarchy
+3. Q10 hierarchy
+4. Q11 hierarchy
+5. Q14-Q16 OR hierarchy
+6. image block associated with Q6
+7. integrity results
+8. any REVIEW_REQUIRED items
+
+Do not proceed to formatting.
+
+========================================================
+ABSOLUTE STOP LINE
+========================================================
+
+CORE Phase 1 ends when:
+
+Teacher Exam
+    ↓
+correct canonical hierarchy
+    ↓
+correct deterministic numbering
+    ↓
+integrity PASS
+
+Nothing beyond that belongs in this phase.
+
+NO FORMATTING.
+
+NO BROWSER.
+
+NO WHATSAPP.
+
+NO DATABASE.
+
+NO FEATURE CREEP.
+
+FIRST ACTION NOW:
+
+Inspect the two DOCX files and return the short Phase 1 implementation
+plan.
+
+DO NOT WRITE PROJECT CODE UNTIL I APPROVE THE PLAN.

@@ -1,0 +1,17 @@
+INTEGRITY
+PASS question_order_blocks_preserved: 151 paragraph blocks
+PASS substantive_text: original paragraph text is unchanged
+PASS marks: mark tokens stay on the same source block
+PASS numerical_values: digit sequences stay on the same source block
+PASS passages: 8 passage blocks unchanged
+PASS choices: 48 choice blocks unchanged
+PASS image_presence: 1 image block(s)
+PASS question_order: 16 major questions in order
+
+VALIDATION
+PASS structural invariants
+
+NUMBERING_STABLE PASS
+REVIEW_REQUIRED 0
+
+REFERENCE paragraphs=148 images=1 section_headings=4 q_prefixed_lines=17 parenthesized_roman_lines=45 uppercase_choice_lines=40 standalone_OR_lines=0

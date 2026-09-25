@@ -1,0 +1,2 @@
+Structural counts only. Reference wording is not stored.
+paragraphs=148 images=1 section_headings=4 q_prefixed_lines=17 parenthesized_roman_lines=45 uppercase_choice_lines=40 standalone_OR_lines=0

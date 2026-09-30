@@ -1,0 +1,307 @@
+CURSOR PROMPT — Exam Format REDO
+
+Add Recoverable Word Non-Conformance Error Handling
+
+We have a WORKING Exam Format REDO project. Do not redesign or broadly
+refactor it.
+
+GOAL: When an uploaded Word exam does not conform to the selected
+Reference Exam, DO NOT simply fail. Return a Word file that tells the
+user exactly what is wrong and how to fix it.
+
+The Reference Exam remains the BIBLE.
+
+IMPORTANT: - Make the SMALLEST safe change. - Preserve the existing
+successful formatting path. - Preserve existing CORE discovery,
+hierarchy, deterministic numbering, formatting, image handling, browser
+flow, and positive tests. - Do not change academic content. - Do not
+invent missing content. - Do not weaken validation. - Do not modify
+WhatsApp code as part of this task. - First inspect the current
+validation/failure/output path and identify the smallest insertion
+point.
+
+  --------------------------
+  1. REQUIRED NEW BEHAVIOR
+  --------------------------
+
+Current behavior is approximately:
+
+Input Word -> Validate -> FAIL -> Stop
+
+Change it to:
+
+Input Word -> Validate -> Find non-conformances
+
+IF no errors: Continue existing formatting pipeline unchanged.
+
+IF errors exist: Create/return a Word output file containing simple
+ERROR/FIX messages. Do NOT simply terminate without returning a file.
+
+The user will repair the Word file manually and rerun it.
+
+  --------------------
+  2. ERROR/FIX BLOCK
+  --------------------
+
+For EACH detected validation error insert exactly this logical
+structure:
+
+ERROR: FIX:
+
+Example:
+
+ERROR: Section C is missing. FIX: Add Section C in the correct position,
+following the Reference Exam.
+
+Use VERY SIMPLE ENGLISH.
+
+  -----------------------------
+  3. WHERE TO PUT THE MESSAGE
+  -----------------------------
+
+Place each ERROR/FIX block as close as reasonably possible to the source
+of the error.
+
+Examples:
+
+Missing header: - Put the ERROR/FIX block near the top/header area.
+
+Missing Section C: - Prefer putting the block where Section C should
+occur, for example between Section B and Section D.
+
+If the code cannot determine a reliable insertion location: - Put the
+ERROR/FIX block at the bottom of the Word document.
+
+Do not make placement logic complicated or fragile. Fallback-to-bottom
+is acceptable.
+
+  --------------------
+  4. WORD APPEARANCE
+  --------------------
+
+The ERROR/FIX block must:
+
+-   clearly stand out in YELLOW
+-   be normal editable Word paragraphs
+-   be easy for a basic Word user to select and delete
+-   NOT use Word comments
+-   NOT use tracked changes
+-   NOT use text boxes or shapes
+-   NOT use hidden metadata
+
+Prefer simple paragraph/run formatting.
+
+Use yellow highlighting/shading in the simplest reliable way supported
+by the project’s existing python-docx approach.
+
+The user must be able to: 1. see the error 2. fix the exam 3. delete the
+ERROR/FIX paragraphs 4. save 5. rerun the corrected Word file
+
+  ----------------------------
+  5. DO NOT AUTO-FIX CONTENT
+  ----------------------------
+
+The application must NOT invent or reconstruct missing academic
+material.
+
+For example, if Section C is missing:
+
+GOOD: ERROR: Section C is missing. FIX: Add Section C in the correct
+position, following the Reference Exam.
+
+BAD: Automatically generate a new Section C.
+
+This feature is diagnosis + guidance only.
+
+  -------------------------
+  6. ERROR DATA STRUCTURE
+  -------------------------
+
+Use the simplest clean internal representation that fits the current
+code.
+
+Conceptually an error needs only information such as:
+
+-   error type/code
+-   simple ERROR text
+-   simple FIX text
+-   optional source/location hint
+
+Do not introduce a large framework.
+
+Reuse existing validator/reference-comparison information wherever
+possible.
+
+  -----------------------------
+  7. POSITIVE REGRESSION TEST
+  -----------------------------
+
+We already have a known-good exam/test case.
+
+Run the existing positive test unchanged.
+
+Expected:
+
+-   validation passes
+-   zero ERROR paragraphs
+-   zero FIX paragraphs
+-   normal formatted output is generated
+-   formatting behavior remains unchanged
+
+Do not update the expected positive output merely to make a regression
+pass.
+
+  -------------------------------------
+  8. CREATE ONE NEGATIVE TEST FIXTURE
+  -------------------------------------
+
+Create a COPY of the existing known-good English 10 teacher exam
+fixture.
+
+Name it clearly, for example:
+
+Teacher Exam English 10 BAD.docx
+
+Modify ONLY TWO things:
+
+ERROR #1: Remove one REQUIRED HEADER element that the Reference expects.
+
+ERROR #2: Remove one COMPLETE REQUIRED SECTION that the Reference
+expects.
+
+Choose a section that is unambiguous in the current reference/fixture.
+
+Do not intentionally introduce any other differences.
+
+  ------------------------------
+  9. NEGATIVE TEST EXPECTATION
+  ------------------------------
+
+Run the bad file through the same application/core path.
+
+The application MUST return a Word file instead of simply failing.
+
+The returned file must contain EXACTLY:
+
+2 ERROR lines 2 FIX lines
+
+One pair must describe the missing header.
+
+Example wording:
+
+ERROR: Required exam header is missing. FIX: Add the missing header
+following the Reference Exam.
+
+One pair must describe the missing section.
+
+Example wording:
+
+ERROR: Section C is missing. FIX: Add Section C in the correct position,
+following the Reference Exam.
+
+Exact wording can reflect the actual missing header/section, but keep it
+simple.
+
+  ---------------------------------------------------
+  10. TEST THE GENERATED WORD FILE PROGRAMMATICALLY
+  ---------------------------------------------------
+
+The negative test must open the returned DOCX and verify:
+
+-   output DOCX exists and opens
+-   exactly 2 paragraphs/lines beginning with “ERROR:”
+-   exactly 2 paragraphs/lines beginning with “FIX:”
+-   one error corresponds to the missing header
+-   one error corresponds to the missing section
+-   ERROR/FIX content is visibly yellow using the chosen Word formatting
+    mechanism
+-   messages are ordinary editable document paragraphs/runs
+
+Also verify that no unexpected third validation error is reported.
+
+If removing the chosen header/section accidentally creates secondary
+structural errors, do NOT hide real validator errors just to force the
+count to 2.
+
+Instead, adjust the negative fixture so it contains exactly the intended
+two independent violations.
+
+  --------------------------------
+  11. IMPORTANT FAILURE BEHAVIOR
+  --------------------------------
+
+Differentiate:
+
+A)  USER DOCUMENT NON-CONFORMANCE -> Return annotated Word file with
+    ERROR/FIX guidance.
+
+B)  REAL SOFTWARE/SYSTEM FAILURE Examples: corrupt DOCX, exception,
+    filesystem failure, model/API failure where required. -> Keep normal
+    technical failure handling.
+
+Do not turn genuine software exceptions into fake teacher ERROR/FIX
+messages.
+
+  -------------------------------
+  12. IMPLEMENTATION DISCIPLINE
+  -------------------------------
+
+Before changing code:
+
+1.  Locate the current validation/non-conformance failure path.
+2.  Locate where the output DOCX is created/copied.
+3.  Locate existing Word formatting helpers.
+4.  Identify the minimum files that need modification.
+
+Then implement.
+
+Do not: - rewrite CORE - rewrite formatter - change hierarchy
+discovery - change numbering rules - change the Reference rules - change
+browser architecture - change WhatsApp - perform unrelated
+cleanup/refactoring
+
+  -------------------------
+  13. ACCEPTANCE CRITERIA
+  -------------------------
+
+POSITIVE TEST PASS:
+
+-   known-good exam still formats normally
+-   zero ERROR/FIX messages
+-   no regression in existing output
+
+NEGATIVE TEST PASS:
+
+-   bad exam contains exactly 2 intended violations
+-   application does NOT simply fail
+-   output Word file is returned
+-   exactly 2 ERROR lines
+-   exactly 2 FIX lines
+-   missing-header message present
+-   missing-section message present
+-   messages visibly yellow
+-   messages easy to delete in Word
+-   no missing academic content is automatically generated
+
+  ------------------------------
+  14. FINAL REPORT — THEN STOP
+  ------------------------------
+
+After implementation and tests, report only a concise summary:
+
+FILES CHANGED:
+
+POSITIVE TEST: PASS / FAIL
+
+NEGATIVE TEST: PASS / FAIL
+
+ERRORS EXPECTED: 2 ERRORS FOUND:
+
+OUTPUT BAD TEST FILE:
+
+IMPLEMENTATION NOTE: <1-3 sentences describing where the new
+error-reporting layer was inserted>
+
+Do not proceed to additional enhancements.
+
+STOP after this task.

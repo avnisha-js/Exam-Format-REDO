@@ -17,6 +17,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from format.format_integrity import check_format
+from format.nonconformance import find_nonconformances, write_nonconformance_file
 from format.word_formatter import format_exam
 from run_core import run_pipeline
 
@@ -115,19 +116,29 @@ def create_app(data_root: Path | None = None) -> Flask:
         formatted = folder / "formatted.docx"
         upload.save(original)
         try:
-            result = run_pipeline(original, reference_path(), folder / "work")
-            if not result["ok"]:
-                shutil.rmtree(folder, ignore_errors=True)
-                return redirect(url_for("index", error="Formatting failed. The exam was not saved."))
-            format_exam(result["blocks"], original, formatted)
-            problems = check_format(result["blocks"], original, formatted, reference_path())
-            if problems:
-                shutil.rmtree(folder, ignore_errors=True)
-                return redirect(url_for("index", error="Formatting failed. The exam was not saved."))
+            errors = find_nonconformances(original, reference_path())
+            if errors:
+                write_nonconformance_file(original, formatted, errors)
+                formatted_name = download_stem(original_name) + "_CORRECTIONS.docx"
+                message = (
+                    "This exam does not match the Reference Exam. "
+                    "Download the file, follow the yellow notes, delete those notes, and upload again."
+                )
+            else:
+                result = run_pipeline(original, reference_path(), folder / "work")
+                if not result["ok"]:
+                    shutil.rmtree(folder, ignore_errors=True)
+                    return redirect(url_for("index", error="Formatting failed. The exam was not saved."))
+                format_exam(result["blocks"], original, formatted)
+                problems = check_format(result["blocks"], original, formatted, reference_path())
+                if problems:
+                    shutil.rmtree(folder, ignore_errors=True)
+                    return redirect(url_for("index", error="Formatting failed. The exam was not saved."))
+                formatted_name = download_stem(original_name) + "_FORMATTED.docx"
+                message = "Exam formatted."
         except Exception:
             shutil.rmtree(folder, ignore_errors=True)
             return redirect(url_for("index", error="Formatting failed. The exam was not saved."))
-        formatted_name = download_stem(original_name) + "_FORMATTED.docx"
         rows = load_index()
         rows.append(
             {
@@ -138,7 +149,7 @@ def create_app(data_root: Path | None = None) -> Flask:
             }
         )
         save_index(rows)
-        return redirect(url_for("index", message="Exam formatted.", download=exam_id))
+        return redirect(url_for("index", message=message, download=exam_id))
 
     @app.get("/exams/<exam_id>/download")
     def download_exam(exam_id: str):

@@ -34,6 +34,8 @@ def test_formatted_exam():
     from docx import Document
 
     doc = Document(str(OUTPUT))
+    assert not any(p.text.strip().startswith("ERROR:") for p in doc.paragraphs)
+    assert not any(p.text.strip().startswith("FIX:") for p in doc.paragraphs)
     text = "\n".join(p.text for p in doc.paragraphs)
     flat = _norm(text)
     cursor = 0

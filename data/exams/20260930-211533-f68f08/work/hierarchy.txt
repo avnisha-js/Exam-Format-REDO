@@ -1,0 +1,363 @@
+SOURCE | TYPE | PARENT | FINAL LABEL | TEXT
+p0001 | metadata         | -        | -                | Bhagini  Nivedita  Vidhyapeeth,Sandalpur
+p0002 | metadata         | -        | -                | Quarterly Exam-2026
+p0003 | metadata         | -        | -                | Class X
+p0004 | metadata         | -        | -                | Subject –English
+p0005 | metadata         | -        | -                | Time : 3 Hrs                                                                                              M.M.: 80
+p0006 | metadata         | -        | -                | SYLLABUS
+p0007 | syllabus         | -        | -                | Book 1: First Flight
+p0008 | syllabus         | -        | -                | Chapter 1: A letter to God
+p0009 | syllabus         | -        | -                | ⁠Chapter 2: Nelson Mandela
+p0010 | syllabus         | -        | -                | Chapter 3: Two stories about Flying
+p0011 | syllabus         | -        | -                | Poem: dust of snow
+p0012 | syllabus         | -        | -                | Poem: Fire and Ice
+p0013 | syllabus         | -        | -                | Book 2: Footprints without feet
+p0014 | syllabus         | -        | -                | Ch. 1: Triumph of Surgery
+p0015 | section          | -        | -                | Section A
+p0016 | major_question   | -        | Q1)              | Q1) Read the following passage and answer the questions given below :   (1x5=5)
+p0017 | passage          | p0016    | -                | Emperor Ashoka was one of the earliest Indian monarchs who planted shady trees on roads and in public places. The Moghuls, too, realized the necessity of shade on the roads which they constructed. But there was no conscious planning, and the peepal, banyan and pakur trees were indiscriminately mixed with neems, tamarind and mahuas. It was only in Kashmir that they showed some preference for planning and planted magnificent avenues of chinar along the banks of the river Jhelum, which can be seen at their best at Gandhadbo and Matam on the way to Pahalgam.
+p0018 | passage          | p0016    | -                | A plantation plan for our national, state and district highways is urgently needed. At present, our roads are planted by the P.W.D. engineers who are ignorant of trees. Ultimately, the planting of new trees and replacement of dead trees is left to gardeners alone who plant any tree which comes handy. The result has been unfortunate, and our roadside avenues have become a mixture of odd trees.
+p0019 | subquestion      | p0016    | i)               | i) The Moghuls planted the magnificent avenues of Chinar in:
+p0020 | choice           | p0019    | a)               | a) Kashmir
+p0021 | choice           | p0019    | b)               | b) Kerala
+p0022 | choice           | p0019    | c)               | c) Karnataka
+p0023 | choice           | p0019    | d)               | d) Kanyakumari
+p0024 | subquestion      | p0016    | ii)              | ii) Who planted a shady tree?
+p0025 | choice           | p0024    | a)               | a) Sikandar
+p0026 | choice           | p0024    | b)               | b) Ashoka
+p0027 | choice           | p0024    | c)               | c) Maharana Pratap
+p0028 | choice           | p0024    | d)               | d) Haider Ali.
+p0029 | subquestion      | p0016    | iii)             | iii) Who was Ashoka:
+p0030 | choice           | p0029    | a)               | a) A Gardener
+p0031 | choice           | p0029    | b)               | b) Indian Monarch
+p0032 | choice           | p0029    | c)               | c) Indian film actor
+p0033 | choice           | p0029    | d)               | d) None of these.
+p0034 | subquestion      | p0016    | iv)              | iv) Which plants were planted along the bank of river Jhelum :
+p0035 | choice           | p0034    | a)               | a) Neem
+p0036 | choice           | p0034    | b)               | b) Peepal
+p0037 | choice           | p0034    | c)               | c) Banyan
+p0038 | choice           | p0034    | d)               | d) Chinar.
+p0039 | subquestion      | p0016    | v)               | v) At present our roads are planted by:
+p0040 | choice           | p0039    | a)               | a) S.D.O.
+p0041 | choice           | p0039    | b)               | b) P.W.D.
+p0042 | choice           | p0039    | c)               | c) Forest Dept.
+p0043 | choice           | p0039    | d)               | d) Teachers.
+p0044 | major_question   | -        | Q2)              | Q2) Read the following passage and answer the questions given below : (1x5=5)
+p0045 | passage          | p0044    | -                | You must have heard the name of the Red Cross. The Red Cross Society is an International organization. Its aim is very noble. It helps mankind suffering from disasters like earthquake, flood and famine. It helps the sick and the wounded during wars. It helps without any consideration of nationality, creed or colour. Sir Henri Dunant founded the Red Cross Society in 1863 in Switzerland. In 1920, the Indian Red Cross Society was formed.To inculcate the spirit of Red Cross in students, Junior Red Cross was started. Students under 16 can be enrolled in Junior Red Cross (J.R.C.). The motto of J.R.C. is 'I serve'. Its main  objectives are Health, service and Friendship. The teacher in charge of J.R.C. is called the Counsellor. The students as members of Junior Red Cross work under the guidance of their counsellor in the service of human beings who need care and support.
+p0046 | subquestion      | p0044    | i)               | i) Red Cross Society is an:
+p0047 | choice           | p0046    | a)               | a) National Organization
+p0048 | choice           | p0046    | b)               | b) International organisations
+p0049 | choice           | p0046    | c)               | c) Local organisations
+p0050 | choice           | p0046    | d)               | d) State organisations
+p0051 | subquestion      | p0044    | ii)              | ii) Who founded the Red Cross Society:
+p0052 | choice           | p0051    | a)               | a) William Shakespeare
+p0053 | choice           | p0051    | b)               | b) Sir Henri Dunant
+p0054 | choice           | p0051    | c)               | c) Sir Macaulay
+p0055 | choice           | p0051    | d)               | d) William Wordsworth
+p0056 | subquestion      | p0044    | iii)             | iii) When did Red Cross Society found :
+p0057 | choice           | p0056    | a)               | a) 1920
+p0058 | choice           | p0056    | b)               | b) 1863
+p0059 | choice           | p0056    | c)               | c) 1947
+p0060 | choice           | p0056    | d)               | d) 2000
+p0061 | subquestion      | p0044    | iv)              | iv) When did Indian Red Cross Society form:
+p0062 | choice           | p0061    | a)               | a) 1863
+p0063 | choice           | p0061    | b)               | b) 1920
+p0064 | choice           | p0061    | c)               | c) 1947
+p0065 | choice           | p0061    | d)               | d) 2000
+p0066 | subquestion      | p0044    | v)               | v) The teacher in charge of J.R.C. is known as
+p0067 | choice           | p0066    | a)               | a) Captain
+p0068 | choice           | p0066    | b)               | b) Lieutenant
+p0069 | choice           | p0066    | c)               | c) Counsellor
+p0070 | choice           | p0066    | d)               | d) None of these.
+p0071 | major_question   | -        | Q3)              | Q3) Read the following passage carefully and make a suitable note on it.           (4)
+p0072 | passage          | p0071    | -                | If you make a mistake, have the moral courage immediately to acknowledge your error and put it right. Mistakes do very little harm if they are acknowledged without delay and corrected before they have had the time to do any damage. Let them remain unattended and they may do untold harm both to the task in hand and to your reputation. Contrary to general belief, nobody despises a person who has the moral courage to admit that he is in the wrong and is immediately prepared to make good the errors. What can you say to a man who admits, "I beg your pardon." You are quite right and I am quite wrong. Please let me set the matter right now immediately before it has done any harm. "Would you despise a man like that?" Then why not emulate him? But here let me tell you, nobody likes such a fool as a man who is trying to keep his end up by desperately lying when he is in the wrong and everyone knows .
+p0073 | section          | -        | -                | Section B
+p0074 | major_question   | -        | Q4)              | Q4) Write an application to your principal for issuing you books from the book-bank.  (4)
+p0075 | or_marker        | p0074    | OR               | OR
+p0076 | alternative      | p0074    | -                | Write a letter to your friend inviting him to your birthday.    				          (4)
+p0077 | major_question   | -        | Q5)              | Q5) Write an essay on the topic given below. (Any one). 				          (5)
+p0078 | choice           | p0077    | a)               | a) Importance of sports
+p0079 | choice           | p0077    | b)               | b) Science, a Blessing or  a curse.
+p0080 | choice           | p0077    | c)               | c) An Indian Festival
+p0081 | choice           | p0077    | d)               | d) Online education.
+p0082 | major_question   | -        | Q6)              | Q6) See the following pictures and write about it in about 60-75 words.
+p0083 | passage          | p0082    | -                | 
+img0001 | image            | p0083    | -                | 
+p0084 | section          | -        | -                | Section C
+p0085 | major_question   | -        | Q7)              | Q7) Fill in the blanks choosing the correct options:(any 5). 			(1x5=5)
+p0086 | subquestion      | p0085    | i)               | i) I__this book yesterday.(read, reads, reading).
+p0087 | subquestion      | p0085    | ii)              | ii) We__ follow the traffic rules.(Should,may, can)
+p0088 | subquestion      | p0085    | iii)             | iii) How___ sugar do you take in tea? ( Many, much, some)
+p0089 | subquestion      | p0085    | iv)              | iv) The office opens__9:30 am.(At, on in).
+p0090 | subquestion      | p0085    | v)               | v) e. His brother is__R.J. in the local radio channel.   ( A, an the)
+p0091 | subquestion      | p0085    | vi)              | vi) f. Mohit is__tallest boy in the class. (a, an, the).
+p0092 | major_question   | -        | Q8)              | Q8) Do as Directed (any 5). 								(1x5=5)
+p0093 | subquestion      | p0092    | i)               | i) She cut the tree. ( Change into interrogative)
+p0094 | subquestion      | p0092    | ii)              | ii) He teaches Science. (Change into present continuous tense)
+p0095 | subquestion      | p0092    | iii)             | iii) If you don't come on time, the teacher will punish you. (Using 'unless' in place of 'if')
+p0096 | subquestion      | p0092    | iv)              | iv) He is too poor to pay his fees. (Rewrite using "so.... That")
+p0097 | subquestion      | p0092    | v)               | v) e. Mohan will write a letter. (Change into present perfect tense).
+p0098 | subquestion      | p0092    | vi)              | vi) f. They complete their work. (Make negative)
+p0099 | section          | -        | -                | Section D
+p0100 | major_question   | -        | Q9)              | Q9) Read the extract carefully and answer the questions given below it.  (1x3=3)
+p0101 | branch           | p0100    | A)               | A)
+p0102 | passage          | p0101    | -                | He hears the last  voice at night
+p0103 | passage          | p0101    | -                | The patrolling cars
+p0104 | passage          | p0101    | -                | And stares with his brilliant eyes.
+p0105 | passage          | p0101    | -                | At the brilliant stars.
+p0106 | subquestion      | p0101    | i)               | i) At night the tiger listens to .........
+p0107 | choice           | p0106    | a)               | a) The people talking
+p0108 | choice           | p0106    | b)               | b) The trains
+p0109 | choice           | p0106    | c)               | c) Patrolling cars
+p0110 | choice           | p0106    | d)               | d) Vehicles.
+p0111 | subquestion      | p0101    | ii)              | ii) From which poem the above lines have been taken:
+p0112 | choice           | p0111    | a)               | a) Dust of Snow
+p0113 | choice           | p0111    | b)               | b) Fire and Ice
+p0114 | choice           | p0111    | c)               | c) A Tiger in the Zoo.
+p0115 | subquestion      | p0101    | iii)             | iii) What does he stare at:
+p0116 | choice           | p0115    | a)               | a) Cars
+p0117 | choice           | p0115    | b)               | b) Night
+p0118 | choice           | p0115    | c)               | c) Stars.
+p0119 | branch           | p0100    | B)               | B)
+p0120 | passage          | p0119    | -                | All day long, he had watched his parents flying about with his brother and sister, perfecting them in the art of flight, teaching them how to skim the waves and dive for fish. He had in fact seen his older brother catch his first horning and devour it, standing on a rock, while his parents circle around raising a proud cackle. And all the morning the whole family had walked about on the big plateau midway down the opposite cliff taunting him with his cowardice.
+p0121 | subquestion      | p0119    | i)               | i) The line has been taken from which lesson?					(1x3=3)
+p0122 | choice           | p0121    | a)               | a) A letter to God
+p0123 | choice           | p0121    | b)               | b) His first flight
+p0124 | choice           | p0121    | c)               | c) Nelson Mandela
+p0125 | subquestion      | p0119    | ii)              | ii) Who has written this story?
+p0126 | choice           | p0125    | a)               | a) Nelson Mandela
+p0127 | choice           | p0125    | b)               | b) Frederick Forsyth
+p0128 | choice           | p0125    | c)               | c) Liam O' Flaherty
+p0129 | subquestion      | p0119    | iii)             | iii) The family was taunting the young seagull for:
+p0130 | choice           | p0129    | a)               | a) His bravery
+p0131 | choice           | p0129    | b)               | b) His cowardice
+p0132 | choice           | p0129    | c)               | c) None of the above
+p0133 | major_question   | -        | Q10)             | Q10) Choose the correct answer:   (1x4=4)
+p0134 | subquestion      | p0133    | i)               | i) The lesson 'His First Flight' is about :
+p0135 | choice           | p0134    | a)               | a) Pigeon
+p0136 | choice           | p0134    | b)               | b) Pilot
+p0137 | choice           | p0134    | c)               | c) Parrot
+p0138 | choice           | p0134    | d)               | d) Seagull.
+p0139 | subquestion      | p0133    | ii)              | ii) According to Mandela what comes true in heart
+p0140 | choice           | p0139    | a)               | a) Hate
+p0141 | choice           | p0139    | b)               | b) Love
+p0142 | choice           | p0139    | c)               | c) Happy
+p0143 | choice           | p0139    | d)               | d) Desire
+p0144 | subquestion      | p0133    | iii)             | iii) Where was the crow sitting
+p0145 | choice           | p0144    | a)               | a) Banyan tree
+p0146 | choice           | p0144    | b)               | b) Pine tree
+p0147 | choice           | p0144    | c)               | c) Hemlock tree
+p0148 | choice           | p0144    | d)               | d) Mango tree
+p0149 | subquestion      | p0133    | iv)              | iv) Lencho compared the
+p0150 | continuation     | p0149    | -                | large raindrops with__
+p0151 | choice           | p0149    | a)               | a) Stone
+p0152 | choice           | p0149    | b)               | b) Pearl
+p0153 | choice           | p0149    | c)               | c) New coins
+p0154 | choice           | p0149    | d)               | d) Diamond
+p0155 | major_question   | -        | Q11)             | Q11) Answer the following questions (any six)  (2x6=12)
+p0156 | subquestion      | p0155    | i)               | i) Why did Lencho say that the raindrops were like "New Coins"?
+p0157 | subquestion      | p0155    | ii)              | ii) What twin obligations does Mandela mention?
+p0158 | subquestion      | p0155    | iii)             | iii) What does Mandela thank the international leaders for?
+p0159 | subquestion      | p0155    | iv)              | iv) "I'll take the risk." What is the risk? Why does the pilot take it?
+p0160 | subquestion      | p0155    | v)               | v) What did lencho hope for? Who read the letter?
+p0161 | subquestion      | p0155    | vi)              | vi) Why did the postmaster send money to Lencho?
+p0162 | subquestion      | p0155    | vii)             | vii) Why was the young seagull afraid to fly?
+p0163 | major_question   | -        | Q12)             | Q12) Answer the following questions (any two) (2x3=4)
+p0164 | subquestion      | p0163    | i)               | i) What are the two negative powers that can destroy the world?
+p0165 | subquestion      | p0163    | ii)              | ii) How does the tiger move about the cage?
+p0166 | subquestion      | p0163    | iii)             | iii) What is a 'dust of snow ' ? How has the poet's mood changed ?
+p0167 | major_question   | -        | Q13)             | Q13) Answer the following questions(any two)   (2x3=4)
+p0168 | subquestion      | p0167    | i)               | i) Why was Mrs. Pumphrey   worried about Tricki?
+p0169 | subquestion      | p0167    | ii)              | ii) How did the narrator cure  dogs?
+p0170 | subquestion      | p0167    | iii)             | iii) Do you think there are also parents like Mrs pumphrey?
+p0171 | major_question   | -        | Q14)             | Q14) Where did the ceremonies take place ? Can you name any public buildings in India that are made of sandstone. 								(3)
+p0172 | or_marker        | p0171    | OR               | OR
+p0173 | alternative      | p0171    | -                | What compelled the young seagull to finally fly? 					 (3)
+p0174 | major_question   | -        | Q15)             | Q15) Do you think the world will end some day? Have you ever thought what would happen if the sun got so hot that it burst or grew colder and colder?   		 (3)
+p0175 | or_marker        | p0174    | OR               | OR
+p0176 | alternative      | p0174    | -                | What does the dust of snow that the crow shakes off a hemlock tree stand for?  (3)
+p0177 | major_question   | -        | Q16)             | Q16) Did you think Tricki was happy to go home?     					   (3)
+p0178 | or_marker        | p0177    | OR               | OR
+p0179 | alternative      | p0177    | -                | Describe the character sketch of Mrs.Pumphrey            				(3)
+
+TREE
+p0001 metadata Bhagini  Nivedita  Vidhyapeeth,Sandalpur
+p0002 metadata Quarterly Exam-2026
+p0003 metadata Class X
+p0004 metadata Subject –English
+p0005 metadata Time : 3 Hrs                                                                                              M.M.: 80
+p0006 metadata SYLLABUS
+p0007 syllabus Book 1: First Flight
+p0008 syllabus Chapter 1: A letter to God
+p0009 syllabus ⁠Chapter 2: Nelson Mandela
+p0010 syllabus Chapter 3: Two stories about Flying
+p0011 syllabus Poem: dust of snow
+p0012 syllabus Poem: Fire and Ice
+p0013 syllabus Book 2: Footprints without feet
+p0014 syllabus Ch. 1: Triumph of Surgery
+p0015 section Section A
+p0016 Q1) Q1) Read the following passage and answer the questions given below :   (1x5=5)
+  p0017 passage Emperor Ashoka was one of the earliest Indian monarchs who planted shady trees on roads and in public places. The Moghuls, too, realized ...
+  p0018 passage A plantation plan for our national, state and district highways is urgently needed. At present, our roads are planted by the P.W.D. engin...
+  p0019 i) i) The Moghuls planted the magnificent avenues of Chinar in:
+    p0020 a) a) Kashmir
+    p0021 b) b) Kerala
+    p0022 c) c) Karnataka
+    p0023 d) d) Kanyakumari
+  p0024 ii) ii) Who planted a shady tree?
+    p0025 a) a) Sikandar
+    p0026 b) b) Ashoka
+    p0027 c) c) Maharana Pratap
+    p0028 d) d) Haider Ali.
+  p0029 iii) iii) Who was Ashoka:
+    p0030 a) a) A Gardener
+    p0031 b) b) Indian Monarch
+    p0032 c) c) Indian film actor
+    p0033 d) d) None of these.
+  p0034 iv) iv) Which plants were planted along the bank of river Jhelum :
+    p0035 a) a) Neem
+    p0036 b) b) Peepal
+    p0037 c) c) Banyan
+    p0038 d) d) Chinar.
+  p0039 v) v) At present our roads are planted by:
+    p0040 a) a) S.D.O.
+    p0041 b) b) P.W.D.
+    p0042 c) c) Forest Dept.
+    p0043 d) d) Teachers.
+p0044 Q2) Q2) Read the following passage and answer the questions given below : (1x5=5)
+  p0045 passage You must have heard the name of the Red Cross. The Red Cross Society is an International organization. Its aim is very noble. It helps ma...
+  p0046 i) i) Red Cross Society is an:
+    p0047 a) a) National Organization
+    p0048 b) b) International organisations
+    p0049 c) c) Local organisations
+    p0050 d) d) State organisations
+  p0051 ii) ii) Who founded the Red Cross Society:
+    p0052 a) a) William Shakespeare
+    p0053 b) b) Sir Henri Dunant
+    p0054 c) c) Sir Macaulay
+    p0055 d) d) William Wordsworth
+  p0056 iii) iii) When did Red Cross Society found :
+    p0057 a) a) 1920
+    p0058 b) b) 1863
+    p0059 c) c) 1947
+    p0060 d) d) 2000
+  p0061 iv) iv) When did Indian Red Cross Society form:
+    p0062 a) a) 1863
+    p0063 b) b) 1920
+    p0064 c) c) 1947
+    p0065 d) d) 2000
+  p0066 v) v) The teacher in charge of J.R.C. is known as
+    p0067 a) a) Captain
+    p0068 b) b) Lieutenant
+    p0069 c) c) Counsellor
+    p0070 d) d) None of these.
+p0071 Q3) Q3) Read the following passage carefully and make a suitable note on it.           (4)
+  p0072 passage If you make a mistake, have the moral courage immediately to acknowledge your error and put it right. Mistakes do very little harm if the...
+p0073 section Section B
+p0074 Q4) Q4) Write an application to your principal for issuing you books from the book-bank.  (4)
+  p0075 OR OR
+  p0076 alternative Write a letter to your friend inviting him to your birthday.    				          (4)
+p0077 Q5) Q5) Write an essay on the topic given below. (Any one). 				          (5)
+  p0078 a) a) Importance of sports
+  p0079 b) b) Science, a Blessing or  a curse.
+  p0080 c) c) An Indian Festival
+  p0081 d) d) Online education.
+p0082 Q6) Q6) See the following pictures and write about it in about 60-75 words.
+  p0083 passage
+    img0001 image
+p0084 section Section C
+p0085 Q7) Q7) Fill in the blanks choosing the correct options:(any 5). 			(1x5=5)
+  p0086 i) i) I__this book yesterday.(read, reads, reading).
+  p0087 ii) ii) We__ follow the traffic rules.(Should,may, can)
+  p0088 iii) iii) How___ sugar do you take in tea? ( Many, much, some)
+  p0089 iv) iv) The office opens__9:30 am.(At, on in).
+  p0090 v) v) e. His brother is__R.J. in the local radio channel.   ( A, an the)
+  p0091 vi) vi) f. Mohit is__tallest boy in the class. (a, an, the).
+p0092 Q8) Q8) Do as Directed (any 5). 								(1x5=5)
+  p0093 i) i) She cut the tree. ( Change into interrogative)
+  p0094 ii) ii) He teaches Science. (Change into present continuous tense)
+  p0095 iii) iii) If you don't come on time, the teacher will punish you. (Using 'unless' in place of 'if')
+  p0096 iv) iv) He is too poor to pay his fees. (Rewrite using "so.... That")
+  p0097 v) v) e. Mohan will write a letter. (Change into present perfect tense).
+  p0098 vi) vi) f. They complete their work. (Make negative)
+p0099 section Section D
+p0100 Q9) Q9) Read the extract carefully and answer the questions given below it.  (1x3=3)
+  p0101 A) A)
+    p0102 passage He hears the last  voice at night
+    p0103 passage The patrolling cars
+    p0104 passage And stares with his brilliant eyes.
+    p0105 passage At the brilliant stars.
+    p0106 i) i) At night the tiger listens to .........
+      p0107 a) a) The people talking
+      p0108 b) b) The trains
+      p0109 c) c) Patrolling cars
+      p0110 d) d) Vehicles.
+    p0111 ii) ii) From which poem the above lines have been taken:
+      p0112 a) a) Dust of Snow
+      p0113 b) b) Fire and Ice
+      p0114 c) c) A Tiger in the Zoo.
+    p0115 iii) iii) What does he stare at:
+      p0116 a) a) Cars
+      p0117 b) b) Night
+      p0118 c) c) Stars.
+  p0119 B) B)
+    p0120 passage All day long, he had watched his parents flying about with his brother and sister, perfecting them in the art of flight, teaching them ho...
+    p0121 i) i) The line has been taken from which lesson?					(1x3=3)
+      p0122 a) a) A letter to God
+      p0123 b) b) His first flight
+      p0124 c) c) Nelson Mandela
+    p0125 ii) ii) Who has written this story?
+      p0126 a) a) Nelson Mandela
+      p0127 b) b) Frederick Forsyth
+      p0128 c) c) Liam O' Flaherty
+    p0129 iii) iii) The family was taunting the young seagull for:
+      p0130 a) a) His bravery
+      p0131 b) b) His cowardice
+      p0132 c) c) None of the above
+p0133 Q10) Q10) Choose the correct answer:   (1x4=4)
+  p0134 i) i) The lesson 'His First Flight' is about :
+    p0135 a) a) Pigeon
+    p0136 b) b) Pilot
+    p0137 c) c) Parrot
+    p0138 d) d) Seagull.
+  p0139 ii) ii) According to Mandela what comes true in heart
+    p0140 a) a) Hate
+    p0141 b) b) Love
+    p0142 c) c) Happy
+    p0143 d) d) Desire
+  p0144 iii) iii) Where was the crow sitting
+    p0145 a) a) Banyan tree
+    p0146 b) b) Pine tree
+    p0147 c) c) Hemlock tree
+    p0148 d) d) Mango tree
+  p0149 iv) iv) Lencho compared the
+    p0150 continuation large raindrops with__
+    p0151 a) a) Stone
+    p0152 b) b) Pearl
+    p0153 c) c) New coins
+    p0154 d) d) Diamond
+p0155 Q11) Q11) Answer the following questions (any six)  (2x6=12)
+  p0156 i) i) Why did Lencho say that the raindrops were like "New Coins"?
+  p0157 ii) ii) What twin obligations does Mandela mention?
+  p0158 iii) iii) What does Mandela thank the international leaders for?
+  p0159 iv) iv) "I'll take the risk." What is the risk? Why does the pilot take it?
+  p0160 v) v) What did lencho hope for? Who read the letter?
+  p0161 vi) vi) Why did the postmaster send money to Lencho?
+  p0162 vii) vii) Why was the young seagull afraid to fly?
+p0163 Q12) Q12) Answer the following questions (any two) (2x3=4)
+  p0164 i) i) What are the two negative powers that can destroy the world?
+  p0165 ii) ii) How does the tiger move about the cage?
+  p0166 iii) iii) What is a 'dust of snow ' ? How has the poet's mood changed ?
+p0167 Q13) Q13) Answer the following questions(any two)   (2x3=4)
+  p0168 i) i) Why was Mrs. Pumphrey   worried about Tricki?
+  p0169 ii) ii) How did the narrator cure  dogs?
+  p0170 iii) iii) Do you think there are also parents like Mrs pumphrey?
+p0171 Q14) Q14) Where did the ceremonies take place ? Can you name any public buildings in India that are made of sandstone. 								(3)
+  p0172 OR OR
+  p0173 alternative What compelled the young seagull to finally fly? 					 (3)
+p0174 Q15) Q15) Do you think the world will end some day? Have you ever thought what would happen if the sun got so hot that it burst or grew colder...
+  p0175 OR OR
+  p0176 alternative What does the dust of snow that the crow shakes off a hemlock tree stand for?  (3)
+p0177 Q16) Q16) Did you think Tricki was happy to go home?     					   (3)
+  p0178 OR OR
+  p0179 alternative Describe the character sketch of Mrs.Pumphrey            				(3)

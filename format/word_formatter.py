@@ -51,7 +51,8 @@ from format.styles import (
 
 _LEADING = re.compile(
     r"^\s*(?:"
-    r"\d{1,2}[\.\)]\s*(?:\([A-Za-z]\)[\.\)]?\s*)?"
+    r"Q\d{1,2}\)\s*"
+    r"|\d{1,2}[\.\)]\s*(?:\([A-Za-z]\)[\.\)]?\s*)?"
     r"|(?:xii|xi|x|ix|viii|vii|vi|v|iv|iii|ii|i)[\.\)]\s*"
     r"|\([A-Da-d]\)[\.\)]?\s*"
     r"|[A-Da-d][\.\)]\s*"
@@ -213,22 +214,48 @@ def _indent(block, by_id, implicit_major_id):
     return base + (INDENT_STEP * extra)
 
 
+_HEADER_ANCHOR = re.compile(
+    r"^(?:class|grade)\s*[:\-–—]?\s*(?:\d{1,2}|xii|xi|x)\b"
+    r"|^subject\b"
+    r"|^time\b"
+    r"|maximum\s+marks"
+    r"|\bm\s*\.\s*m\s*\.",
+    re.IGNORECASE,
+)
+
+
 def _header_lines(blocks):
+    """Exam header cluster: school, title, class, subject, and time.
+
+    The raw teacher file stores that cluster after the syllabus list. A
+    formatted file stores it above the syllabus. Keep the cluster in either
+    place. Leave other pre-syllabus metadata out.
+    """
     ordered = _ordered(blocks)
-    syllabus_ids = {b.source_id for b in ordered if b.block_type == "syllabus"}
-    first_syllabus = next((b.source_order for b in ordered if b.block_type == "syllabus"), None)
-    lines = []
+    runs: list[list[str]] = []
+    current: list[str] = []
+
+    def close() -> None:
+        nonlocal current
+        if current:
+            runs.append(current)
+            current = []
+
     for block in ordered:
-        if block.block_type != "metadata":
+        text = " ".join((block.original_text or "").split())
+        if block.block_type == "metadata" and text and not _is_rule(block.original_text):
+            if text.upper() == "SYLLABUS":
+                close()
+                continue
+            current.append(block.original_text.strip())
             continue
-        if not block.original_text.strip() or _is_rule(block.original_text):
-            continue
-        if first_syllabus is not None and block.source_order < first_syllabus:
-            continue
-        if block.source_id in syllabus_ids:
-            continue
-        lines.append(block.original_text.strip())
-    return lines
+        if text and block.block_type != "metadata":
+            close()
+    close()
+    anchored = [run for run in runs if any(_HEADER_ANCHOR.search(line) for line in run)]
+    if anchored:
+        return anchored[0]
+    return []
 
 
 def _section_label(text: str) -> str:

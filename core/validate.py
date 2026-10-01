@@ -6,7 +6,7 @@ import re
 
 from core.models import Block
 
-_MAJOR_NUM = re.compile(r"^\s*(\d{1,2})[\.\)\s]")
+_MAJOR_NUM = re.compile(r"^\s*(?:Q)?(\d{1,2})[\.\)\s]")
 
 
 def _map(blocks: list[Block]) -> dict[str, Block]:
